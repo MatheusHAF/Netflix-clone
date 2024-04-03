@@ -1,0 +1,14 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+}
+.logo{
+    width: 150px;
+}
+.header ul{
+    display: flex;
+    gap: 1em;
+    font-size: 21px;
+}
