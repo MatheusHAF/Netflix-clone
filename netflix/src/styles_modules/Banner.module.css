@@ -1,0 +1,54 @@
+.home{
+    background-image: url("../images/twd-banner.jpg");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    padding-top: 10em;
+}
+.description_home{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    margin-left: 3em;
+    backdrop-filter: blur(2px);
+    padding: 1em;
+    border-radius: 5px;
+    z-index: 1; 
+}
+.description_home img{
+    width: 200px;
+}
+.description_home p{
+    font-size: 20px;
+    color: white;
+    text-align: left;
+    margin: 5px 0;
+}
+.description_home nav{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    column-gap: 1em;
+}
+.description_home nav button{
+    width: auto;
+    padding: 0.25em 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(78, 78, 78);
+    border: 1px solid rgb(51, 51, 51);
+    border-radius: 10px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    transition: 0.5s ease;
+}
+.description_home nav button:hover{
+    cursor: pointer;
+    background-color: red;
+}

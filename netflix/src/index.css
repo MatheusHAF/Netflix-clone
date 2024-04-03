@@ -1,13 +1,10 @@
-.sawarabi-gothic-regular {
-  font-family: "Sawarabi Gothic", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Sawarabi Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 code {
