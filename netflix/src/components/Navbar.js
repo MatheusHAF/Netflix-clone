@@ -1,21 +1,32 @@
-import styles from "../styles_modules/Navbar.module.css"
-import logo from "../images/logodesktop.png"
-
-import { FaSearch,FaUser,FaBell } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import styles from "../styles_modules/Navbar.module.css";
+import logo from "../images/logodesktop.png";
+import { FaSearch, FaUser, FaBell } from "react-icons/fa";
 
 function Navbar() {
-    return(
-        <header className={styles.header}>
-            <div className={styles.top}>
-                <img className={styles.logo} src={logo} alt="logo netflix" />
-                <ul>
-                    <li><FaSearch/></li>
-                    <li><FaBell/></li>
-                    <li><FaUser/></li>
-                </ul>
-            </div>
-            <div className={styles.bottom}>
-                <ul>
+    const [shrink, setShrink] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 80) {
+                setShrink(true);
+            } else {
+                setShrink(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    return (
+        <header className={`${styles.header} ${shrink ? styles.shrink : ""}`}>
+            <img className={styles.logo} src={logo} alt="logo netflix" />
+            <div>
+                <ul className={styles.list_bottom}>
                     <li><a href="">Inicio</a></li>
                     <li><a href="">Filmes</a></li>
                     <li><a href="">Series</a></li>
@@ -25,7 +36,13 @@ function Navbar() {
                     <li><a href="">Descubra</a></li>
                 </ul>
             </div>
+            <ul className={styles.list_top}>
+                <li><FaSearch /></li>
+                <li><FaBell /></li>
+                <li><FaUser /></li>
+            </ul>
         </header>
     );
 }
+
 export default Navbar;

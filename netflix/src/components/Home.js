@@ -1,5 +1,4 @@
 import styles from "../styles_modules/Home.module.css"
-import logo from "../images/logo-banner.png"
 import { FaPlay, FaInfo  } from "react-icons/fa";
 import Banner from "./Banner";
 import ContinueAssistindo from "./ContinueAssistindo";
