@@ -1,3 +1,6 @@
+:root{
+    --swiper-navigation-color: red;
+}
 .ca{
     display: flex;
     flex-direction: column;

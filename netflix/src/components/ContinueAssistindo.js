@@ -1,4 +1,5 @@
 import { register } from 'swiper/element/bundle';
+import { SliderProps } from 'swiper/element/bundle';
 
 import img1 from "../images/imgs-filmes-series/bb.jpg"
 import img2 from "../images/imgs-filmes-series/lws.jpg"
@@ -7,8 +8,8 @@ import img4 from "../images/imgs-filmes-series/vf3.jpg"
 import img5 from "../images/imgs-filmes-series/vkg.jpg"
 
 import styles from "../styles_modules/ContinueAssistindo.module.css"
-import { AiOutlineDislike,AiOutlineLike } from "react-icons/ai";
-import { FaRegPlayCircle,FaStar } from "react-icons/fa";
+import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
+import { FaRegPlayCircle, FaStar } from "react-icons/fa";
 register();
 
 function ContinueAssistindo() {
@@ -23,7 +24,7 @@ function ContinueAssistindo() {
         <div className={styles.ca} style={{ marginTop: '-5em' }}>
             <h1>Continue Assistindo</h1>
             <div>
-            <swiper-container
+                <swiper-container
                     slides-per-view="4"
                     navigation="true">
                     {
@@ -39,12 +40,12 @@ function ContinueAssistindo() {
                                         <div className={styles.card_description}>
                                             <div className={styles.overlay}></div>
                                             <p className={styles.text}>
-                                            <FaRegPlayCircle /> {image.alt}
+                                                <FaRegPlayCircle /> {image.alt}
                                             </p>
                                             <p className={styles.text_subdescription}>
                                                 Laboris ipsum ut occaecat laboris quis laborum
                                                 reprehenderitabore Lorem aliqua fugiat aliqua exercitation.
-                                                <nav><FaStar/><AiOutlineLike /><AiOutlineDislike /></nav>
+                                                <nav><FaStar /><AiOutlineLike /><AiOutlineDislike /></nav>
                                             </p>
                                         </div>
                                     </div>
