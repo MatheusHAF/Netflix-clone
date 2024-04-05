@@ -7,6 +7,7 @@ function Navbar() {
     const [shrink, setShrink] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false)
     function toggleMenu() {
+        console.log(menuOpen)
         setMenuOpen(!menuOpen);
     };
 
@@ -27,10 +28,10 @@ function Navbar() {
     }, []);
 
     return (
-        <header className={`${styles.header} ${shrink ? styles.shrink : ""}`}>
+        <header className={`${styles.header} ${shrink ? styles.shrink : ""} ${menuOpen ? styles.open : ""}`}>
             <img className={styles.logo} src={logo} alt="logo netflix" />
             <FaBars className={styles.menu_icon} onClick={toggleMenu} />
-            <div className={menuOpen ? `${styles.div_list} ${styles.open}` : `${styles.div_list}`}>
+            <div className={styles.div_list}>
                 <div className={styles.div_bottom}>
                     <ul className={styles.list_bottom}>
                         <li><a href="">Inicio</a></li>
