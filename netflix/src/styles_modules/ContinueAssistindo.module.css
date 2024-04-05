@@ -13,8 +13,68 @@
     height: 177px;
     border-radius: 8px;
 }
-.swiper-button-next svg{
-    
+.card {
+    position: relative;
+    width: 300px;
+    height: 177px;
+    overflow: hidden; /* Garante que a descrição não ultrapasse o card */
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card_description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background-color: rgb(37, 37, 37); /* Alterei a cor de fundo para um tom mais escuro */
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    text-align: start;
+}
+.text{
+    font-size: 21px;
+}
+.text_subdescription{
+    border-top: 2px solid rgba(20, 20, 20, 0.5);
+    font-size: 14px;
+    color: rgb(143, 143, 143);
+}
+.text svg{
+    transition: 0.3s ease;
+}
+.text svg:hover{
+    color: red;
+    font-size: 25px;
+}
+.card:hover .card_description {
+    opacity: 1;
+    cursor: pointer;
+}
+.card_description nav svg{
+    transition: 0.3s ease;
+}
+.card_description nav svg:hover{
+    color: red;
+}
+.card_description nav{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    column-gap: 0.5em;
+    font-size: 16px;
 }
   
   

@@ -10,26 +10,58 @@ import img8 from "../images/imgs-filmes-series/vf8.jpg"
 import img9 from "../images/imgs-filmes-series/vf9.jpg"
 
 import styles from "../styles_modules/ContinueAssistindo.module.css"
+
+import { AiOutlineDislike,AiOutlineLike } from "react-icons/ai";
+import { FaRegPlayCircle,FaStar } from "react-icons/fa";
+
 function Recomendacoes() {
-    return(
+    const images = [
+        { url: img1, alt: 'Velozes e Furiosos 1' },
+        { url: img2, alt: 'Velozes e Furiosos 2' },
+        { url: img3, alt: 'Velozes e Furiosos 3' },
+        { url: img4, alt: 'Velozes e Furiosos 4' },
+        { url: img5, alt: 'Velozes e Furiosos 5' },
+        { url: img6, alt: 'Velozes e Furiosos 6' },
+        { url: img7, alt: 'Velozes e Furiosos 7' },
+        { url: img8, alt: 'Velozes e Furiosos 8' },
+        { url: img9, alt: 'Velozes e Furiosos 9' },
+    ];
+    return (
         <div className={styles.ca}>
             <h1>Porque você assistiu Velozes e Furiosos</h1>
-            <nav>
+            <div>
                 <swiper-container
                     slides-per-view="4"
                     navigation="true">
-                    <swiper-slide><img src={img1} alt="" /></swiper-slide>
-                    <swiper-slide><img src={img2} alt="" /></swiper-slide>
-                    <swiper-slide><img src={img3} alt="" /></swiper-slide>
-                    <swiper-slide><img src={img4} alt="" /></swiper-slide>
-                    <swiper-slide><img src={img5} alt="" /></swiper-slide>
-                    <swiper-slide><img src={img6} alt="" /></swiper-slide>
-                    <swiper-slide><img src={img7} alt="" /></swiper-slide>
-                    <swiper-slide><img src={img8} alt="" /></swiper-slide>
-                    <swiper-slide><img src={img9} alt="" /></swiper-slide>
+                    {
+                        images.map((image) => (
+                            image.url && (
+                                <swiper-slide>
+                                    <div className={styles.card}>
+                                        <img
+                                            src={image.url}
+                                            alt={image.alt}
+                                            className={styles.image}
+                                        />
+                                        <div className={styles.card_description}>
+                                            <div className={styles.overlay}></div>
+                                            <p className={styles.text}>
+                                            <FaRegPlayCircle /> {image.alt}
+                                            </p>
+                                            <p className={styles.text_subdescription}>
+                                                Laboris ipsum ut occaecat laboris quis laborum
+                                                reprehenderitabore Lorem aliqua fugiat aliqua exercitation.
+                                                <nav><FaStar/><AiOutlineLike /><AiOutlineDislike /></nav>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </swiper-slide>
+                            )
+                        ))
+                    }
                 </swiper-container>
 
-            </nav>
+            </div>
         </div>
     );
 }
