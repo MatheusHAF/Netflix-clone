@@ -13,6 +13,7 @@
     flex-direction: column;
     width: 35%;
     margin-left: 3em;
+    background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(2px);
     padding: 1em;
     border-radius: 5px;
@@ -51,4 +52,21 @@
 .description_home nav button:hover{
     cursor: pointer;
     background-color: red;
+}
+@media(max-width:1024px){
+  .home{
+    padding-top: 12em;
+  } 
+  .description_home{
+    width: 90%;
+    max-width: 400px;
+    margin-left: 0.5em;
+  }
+  .description_home img{
+    width: 150px;
+  }
+  .description_home p{
+    font-size: 16px;
+    text-align: left;
+} 
 }
