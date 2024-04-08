@@ -111,8 +111,6 @@
         height: 30%;
         /* Definindo a altura máxima para mostrar a lista completa */
     }
-
-
     .div_list {
         width: 100%;
         display: flex;
@@ -122,6 +120,11 @@
         align-items: center;
         padding: 0;
         margin: 1em auto;
+    }
+    .list_bottom{
+       border-top: 2px solid rgba(39, 39, 39, 0.527);
+       margin-top: 0.5em;
+       padding: 0.5em 0;
     }
 }
 @keyframes slideDown {

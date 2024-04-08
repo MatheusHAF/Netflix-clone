@@ -79,5 +79,21 @@
     column-gap: 0.5em;
     font-size: 16px;
 }
-  
-  
+@media(max-width: 610px){
+    .div_swiper{
+        width: 100;
+        margin: 0;
+        padding: 0;
+    }
+    .card{
+        margin: 0 auto;
+    }
+    .ca{
+        padding:0 1em;
+    }
+}
+@media(max-width: 900px){
+    .ca h1{
+        font-size: 21px !important;
+    }
+}

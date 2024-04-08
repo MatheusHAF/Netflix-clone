@@ -1,5 +1,5 @@
 import { register } from 'swiper/element/bundle';
-import { SliderProps } from 'swiper/element/bundle';
+import { useState, useEffect } from 'react';
 
 import img1 from "../images/imgs-filmes-series/bb.jpg"
 import img2 from "../images/imgs-filmes-series/lws.jpg"
@@ -20,13 +20,44 @@ function ContinueAssistindo() {
         { url: img3, alt: 'Peaky Blinders' },
         { url: img5, alt: 'Vikings' },
     ];
+    const [slidesPerView, setSlidesPerView] = useState(4); // Defina o número inicial de slides por visualização
+
+    useEffect(() => {
+        // Verifique o tamanho da tela e atualize o número de slides exibidos conforme necessário
+        const updateSlidesPerView = () => {
+            if (window.innerWidth >= 1240) {
+                setSlidesPerView(4);
+            } else if (window.innerWidth >= 930) {
+                setSlidesPerView(3);
+            }
+            else if (window.innerWidth >= 610) {
+                setSlidesPerView(2);
+            }
+            else {
+                setSlidesPerView(1);
+            }
+        };
+
+        // Execute a função de atualização quando a janela for redimensionada
+        window.addEventListener('resize', updateSlidesPerView);
+
+        // Execute a função de atualização uma vez quando o componente for montado para definir o valor inicial
+        updateSlidesPerView();
+
+        // Remova o ouvinte de evento ao desmontar o componente para evitar vazamento de memória
+        return () => {
+            window.removeEventListener('resize', updateSlidesPerView);
+        };
+    }, []);
+
     return (
         <div className={styles.ca} style={{ marginTop: '-5em' }}>
             <h1>Continue Assistindo</h1>
-            <div>
+            <div className={styles.div_swiper}>
                 <swiper-container
-                    slides-per-view="4"
-                    navigation="true">
+                    slides-per-view={`${slidesPerView}`}
+                    navigation="true"
+                    >
                     {
                         images.map((image) => (
                             image.url && (

@@ -14,6 +14,8 @@ import styles from "../styles_modules/ContinueAssistindo.module.css"
 import { AiOutlineDislike,AiOutlineLike } from "react-icons/ai";
 import { FaRegPlayCircle,FaStar } from "react-icons/fa";
 
+import { useState, useEffect } from 'react';
+
 function Recomendacoes() {
     const images = [
         { url: img1, alt: 'Velozes e Furiosos 1' },
@@ -26,12 +28,41 @@ function Recomendacoes() {
         { url: img8, alt: 'Velozes e Furiosos 8' },
         { url: img9, alt: 'Velozes e Furiosos 9' },
     ];
+    const [slidesPerView, setSlidesPerView] = useState(4); // Defina o número inicial de slides por visualização
+
+    useEffect(() => {
+        // Verifique o tamanho da tela e atualize o número de slides exibidos conforme necessário
+        const updateSlidesPerView = () => {
+            if (window.innerWidth >= 1240) {
+                setSlidesPerView(4);
+            } else if (window.innerWidth >= 930) {
+                setSlidesPerView(3);
+            }
+            else if (window.innerWidth >= 610) {
+                setSlidesPerView(2);
+            }
+            else {
+                setSlidesPerView(1);
+            }
+        };
+
+        // Execute a função de atualização quando a janela for redimensionada
+        window.addEventListener('resize', updateSlidesPerView);
+
+        // Execute a função de atualização uma vez quando o componente for montado para definir o valor inicial
+        updateSlidesPerView();
+
+        // Remova o ouvinte de evento ao desmontar o componente para evitar vazamento de memória
+        return () => {
+            window.removeEventListener('resize', updateSlidesPerView);
+        };
+    }, []);
     return (
         <div className={styles.ca}>
             <h1>Porque você assistiu Velozes e Furiosos</h1>
-            <div>
+            <div className={styles.div_swiper}>
                 <swiper-container
-                    slides-per-view="4"
+                    slides-per-view={`${slidesPerView}`}
                     navigation="true">
                     {
                         images.map((image) => (
